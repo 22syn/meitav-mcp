@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+
+# Local secrets / session (also lives in ~/.meitav, never commit cookies)
+session.json
+*.session
+.env
