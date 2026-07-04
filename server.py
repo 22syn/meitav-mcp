@@ -479,7 +479,7 @@ async def list_tools() -> list[Tool]:
                 "type": "object",
                 "properties": {
                     "phone": {"type": "string", "description": "Meitav phone number (e.g. 0501234567)"},
-                    "id_number": {"type": "string", "description": "Israeli ID / תעודת זהות (e.g. 205874233)"}
+                    "id_number": {"type": "string", "description": "Israeli ID / תעודת זהות (9 digits, e.g. 012345678)"}
                 },
                 "required": ["phone"]
             }
