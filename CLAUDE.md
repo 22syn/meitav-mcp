@@ -11,9 +11,9 @@ Automated login: phone → SMS OTP (read from iMessage) → session cookies save
 > package needs 3.10+). The macOS system `python3` is 3.9.6 — too old. Use a
 > dedicated venv built from `python3.12`.
 ```bash
-/opt/homebrew/bin/python3.12 -m venv /Users/kobihazout/meitav-mcp/.venv
-/Users/kobihazout/meitav-mcp/.venv/bin/python -m pip install mcp httpx playwright
-/Users/kobihazout/meitav-mcp/.venv/bin/python -m playwright install chromium
+/opt/homebrew/bin/python3.12 -m venv /Users/kobihazout/dev/meitav-mcp/.venv
+/Users/kobihazout/dev/meitav-mcp/.venv/bin/python -m pip install mcp httpx playwright
+/Users/kobihazout/dev/meitav-mcp/.venv/bin/python -m playwright install chromium
 ```
 
 ### Step 2 — Add to Claude Desktop config
@@ -25,8 +25,8 @@ Point `command` at the **venv** interpreter — not bare `python3`.
 Add this entry under `mcpServers`:
 ```json
 "meitav": {
-  "command": "/Users/kobihazout/meitav-mcp/.venv/bin/python",
-  "args": ["/Users/kobihazout/meitav-mcp/server.py"]
+  "command": "/Users/kobihazout/dev/meitav-mcp/.venv/bin/python",
+  "args": ["/Users/kobihazout/dev/meitav-mcp/server.py"]
 }
 ```
 
@@ -35,8 +35,8 @@ Full file example if starting fresh:
 {
   "mcpServers": {
     "meitav": {
-      "command": "/Users/kobihazout/meitav-mcp/.venv/bin/python",
-      "args": ["/Users/kobihazout/meitav-mcp/server.py"]
+      "command": "/Users/kobihazout/dev/meitav-mcp/.venv/bin/python",
+      "args": ["/Users/kobihazout/dev/meitav-mcp/server.py"]
     }
   }
 }
@@ -44,7 +44,7 @@ Full file example if starting fresh:
 
 ### Step 3 — Test the server starts
 ```bash
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' | /Users/kobihazout/meitav-mcp/.venv/bin/python ~/meitav-mcp/server.py
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' | /Users/kobihazout/dev/meitav-mcp/.venv/bin/python ~/meitav-mcp/server.py
 ```
 Expected: a JSON response with `"result"` and `"serverInfo": {"name": "meitav-mcp"}`.
 If you see that → server is working.
