@@ -44,7 +44,7 @@ Full file example if starting fresh:
 
 ### Step 3 — Test the server starts
 ```bash
-echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' | /Users/kobihazout/dev/meitav-mcp/.venv/bin/python ~/meitav-mcp/server.py
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' | /Users/kobihazout/dev/meitav-mcp/.venv/bin/python /Users/kobihazout/dev/meitav-mcp/server.py
 ```
 Expected: a JSON response with `"result"` and `"serverInfo": {"name": "meitav-mcp"}`.
 If you see that → server is working.
@@ -67,6 +67,7 @@ After restart, in any Claude conversation:
 | `No module named 'mcp'` | Install into the venv: `.venv/bin/python -m pip install mcp` |
 | `No module named 'playwright'` | `.venv/bin/python -m pip install playwright && .venv/bin/python -m playwright install chromium` |
 | `SyntaxError: match name:` | Wrong Python — the config must point at `.venv/bin/python` (3.12), not system `python3` (3.9.6). |
+| `Failed to spawn process: No such file or directory` / server disconnected on launch | The `command`/`args` paths in `claude_desktop_config.json` point at a location that no longer exists (e.g. after the project moved to `~/dev/meitav-mcp`). Both must be `/Users/kobihazout/dev/meitav-mcp/.venv/bin/python` and `/Users/kobihazout/dev/meitav-mcp/server.py`. Fix the file, then restart Claude Desktop. |
 | OTP not found / `unable to open database file` | Grant **Full Disk Access to Claude Desktop** (the app that runs this MCP) in System Settings → Privacy & Security → Full Disk Access. Then restart Claude Desktop. |
 | OTP arrives on the iPhone but `read_otp` says "No OTP found" | The code came as a **green SMS** that isn't syncing to the Mac. On the iPhone: **Settings → Messages → Text Message Forwarding → enable this Mac**. SMS codes then appear in the Mac's Messages (`chat.db`) and are auto-read. Until then, type the code into the login browser manually. |
 | `meitav` entry disappears from config after restart | Claude Desktop rewrites `claude_desktop_config.json` with its in-memory list on quit, erasing edits made while it was running. Fix: **fully quit Claude Desktop first**, then add the `meitav` block to the file, then relaunch (it reads the file fresh at launch). |
