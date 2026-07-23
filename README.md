@@ -15,6 +15,14 @@ Everything runs **locally, on your own machine, with your own login**. There is 
 | `get_holdings()` | Current equity positions (name, quantity, value, gain %) |
 | `get_transactions(years)` | Full transaction history by year |
 
+## Use cases
+
+The tools above are building blocks — a few things you can do with them:
+
+- A live dashboard of current holdings, driven straight from `get_holdings()`
+- Return/performance charts over time from `get_performance()`
+- Hook up additional agents on top of the same data for portfolio management or risk analysis
+
 ## How it works
 
 - [`server.py`](server.py) is the MCP server. Data tools call Meitav Dash's own API directly over `httpx` using cookies saved locally at `~/.meitav/session.json` — nothing is proxied through any third-party server.

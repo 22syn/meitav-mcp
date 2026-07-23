@@ -102,6 +102,7 @@ def _read_otp_raw(window_seconds: int = 300) -> dict | None:
 
 
 async def _wait_for_otp(window: int = 120, poll_interval: int = 4, max_wait: int = 90) -> str | None:
+    subprocess.run(["open", "-g", "-a", "Messages"], check=False)  # ensure Messages is running so SMS syncs
     deadline = time.time() + max_wait
     while time.time() < deadline:
         hit = _read_otp_raw(window_seconds=window)
