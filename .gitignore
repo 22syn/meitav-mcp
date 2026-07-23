@@ -11,3 +11,5 @@ __pycache__/
 session.json
 *.session
 .env
+graphify-out/
+.claude/skills/
