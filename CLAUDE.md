@@ -1,5 +1,7 @@
 # Meitav MCP — Setup Instructions for Claude Code
 
+> 📋 **Active plan (2026-07-23):** [docs/plans/2026-07-23-graph-audit-followup.md](docs/plans/2026-07-23-graph-audit-followup.md) — graph-audit follow-up; review before structural changes.
+
 ## What this is
 MCP server that gives Claude direct access to Meitav Dash portfolio data.
 Automated login: phone → SMS OTP (read from iMessage) → session cookies saved.
