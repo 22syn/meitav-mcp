@@ -1,6 +1,7 @@
 # Meitav MCP — Setup Instructions for Claude Code
 
 > 📋 **Active plan (2026-07-23):** [docs/plans/2026-07-23-graph-audit-followup.md](docs/plans/2026-07-23-graph-audit-followup.md) — graph-audit follow-up; review before structural changes.
+> 📋 **Improvement plan (2026-07-23):** [docs/plans/2026-07-23-improvement-plan.md](docs/plans/2026-07-23-improvement-plan.md) — **local `main` is behind `origin/main`, pull first**; then smoke test + retry/backoff.
 
 ## What this is
 MCP server that gives Claude direct access to Meitav Dash portfolio data.
